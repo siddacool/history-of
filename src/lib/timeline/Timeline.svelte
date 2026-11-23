@@ -262,7 +262,7 @@
 <div class="shell">
   <div class="toolbar">
     <Button onclick={fitAll} compact aria-label="Fit all" title="Fit all" variant="text">
-      <Icon icon="mdi:zoom-fit" />
+      <Icon icon="ant-design:expand-outlined" />
     </Button>
   </div>
 
