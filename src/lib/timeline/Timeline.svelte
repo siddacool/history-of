@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-	import { createYearScale } from './scale.js';
+  import { Button } from '@flightlesslabs/dodo-ui';
+	import Icon from '@iconify/svelte';
+  import { createYearScale } from './scale.js';
   import { layout, LABEL_ROW_HEIGHT, DOT_RADIUS, ERA_BAR_HEIGHT, ERA_LANE_GAP } from './layout.js';
   import type { TimelineEvent, TimelineEra, SelectedItem } from './types.js';
   import eventsData from '../data/events.json';
@@ -68,8 +70,8 @@
     g.fillStyle = bg;
     g.fillRect(0, 0, W, H);
 
-    // Axis at 40% from top
-    const ay = Math.round(H * 0.4);
+    // Axis at 30% from top
+    const ay = Math.round(H * 0.3);
     const hits: { x0: number; y0: number; x1: number; y1: number; item: SelectedItem }[] = [];
 
     const scale = createYearScale([MINY, MAXY], [0, W]);
@@ -256,7 +258,9 @@
 
 <div class="shell">
   <div class="toolbar">
-    <button class="btn" onclick={fitAll} title="Fit all"> Fit all </button>
+    <Button onclick={fitAll} title="Fit all">
+      <Icon icon="mdi:fit-to-page" style="width:16px;height:16px;" />
+    </Button>
   </div>
 
   <div class="wrap">
@@ -306,21 +310,6 @@
   .canvas {
     cursor: grab;
     touch-action: none;
-  }
-  .btn {
-    background: var(--dodo-color-white, #fff);
-    color: var(--dodo-color-neutral-900, #1f1d1a);
-    border: 1px solid var(--dodo-color-neutral-200, #cfc8bb);
-    border-radius: 8px;
-    padding: 6px 12px;
-    font: inherit;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .btn:hover {
-    border-color: var(--dodo-color-primary-600, #b4442b);
   }
   .hint {
     position: absolute;

@@ -37,6 +37,15 @@
     }
     return eras.find((e) => e.id === sel.id)?.description ?? '';
   }
+
+  function selectedImage() {
+    if (!sel) return '';
+    if (sel.type === 'event') {
+      const e = events.find((ev) => ev.id === sel.id);
+      return e?.image ?? '';
+    }
+    return eras.find((e) => e.id === sel.id)?.image ?? '';
+  }
 </script>
 
 <div class="info-panel">
@@ -51,6 +60,9 @@
     </div>
     <h2>{selectedTitle()}</h2>
     <p class="info-range">{selectedRange()}</p>
+    {#if selectedImage()}
+      <img class="info-img" src={selectedImage()} alt={selectedTitle()} />
+    {/if}
     <div class="info-desc" style="max-height: 200px; overflow-y: auto;">
       {selectedDesc()}
     </div>
@@ -125,6 +137,14 @@
     margin: 0;
     overflow-y: auto;
     padding-right: 4px;
+  }
+  .info-panel .info-img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 8px 0;
+    background: var(--dodo-color-neutral-50, #faf8f4);
   }
   .info-panel .info-empty {
     display: flex;

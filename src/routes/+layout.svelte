@@ -1,5 +1,6 @@
 <script lang="ts">
   import { browser } from '$app/env';
+  import '@flightlesslabs/dodo-ui/styles/global.css';
 
   let dark = $state(browser ? matchMedia('(prefers-color-scheme: dark)').matches : false);
 

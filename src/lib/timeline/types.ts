@@ -5,6 +5,7 @@ export type TimelineEvent = {
   weight: 1 | 2 | 3;
   description?: string;
   tags?: string[];
+  image?: string;
 };
 
 export type TimelineEra = {
@@ -14,6 +15,7 @@ export type TimelineEra = {
   end: number;
   description?: string;
   tags?: string[];
+  image?: string;
 };
 
 export type SelectedItem = { type: 'event'; id: string } | { type: 'era'; id: string } | null;
