@@ -1,8 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { Button } from '@flightlesslabs/dodo-ui';
-	import Icon from '@iconify/svelte';
+  import Icon from '@iconify/svelte';
   import { createYearScale } from './scale.js';
+  import { fmtYear } from './format.js';
   import { layout, LABEL_ROW_HEIGHT, DOT_RADIUS, ERA_BAR_HEIGHT, ERA_LANE_GAP } from './layout.js';
   import type { TimelineEvent, TimelineEra, SelectedItem } from './types.js';
   import eventsData from '../data/events.json';
@@ -20,8 +21,6 @@
   const MINY = -3500,
     MAXY = 2100;
   let sel = $state<SelectedItem>(null);
-
-  const fmt = (y: number) => (y < 0 ? `${-y} BCE` : `${y} CE`);
 
   function toY(px: number) {
     return (px - W / 2) / s + cx;
@@ -181,7 +180,11 @@
     g.fillStyle = mut;
     g.textAlign = 'right';
     g.font = '11px system-ui,sans-serif';
-    g.fillText(fmt(Math.round(toY(0))) + '  to  ' + fmt(Math.round(toY(W))), W - 10, H - 10);
+    g.fillText(
+      fmtYear(Math.round(toY(0))) + '  to  ' + fmtYear(Math.round(toY(W))),
+      W - 10,
+      H - 10,
+    );
   }
 
   function zoom(f: number, mx?: number) {
