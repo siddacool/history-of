@@ -3,7 +3,7 @@
 </script>
 
 <div class="page-wrap">
-  <Timeline orientation="horizontal" />
+  <Timeline />
 </div>
 
 <style>

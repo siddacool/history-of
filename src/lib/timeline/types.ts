@@ -16,10 +16,6 @@ export type TimelineEra = {
   tags?: string[];
 };
 
-export type Orientation = 'horizontal' | 'vertical';
-
-export type Theme = 'auto' | 'light' | 'dark';
-
 export type SelectedItem = { type: 'event'; id: string } | { type: 'era'; id: string } | null;
 
 export type TimelineTheme = {

@@ -26,14 +26,14 @@ Open the relevant JSON file and append entries following the schema below.
 }
 ```
 
-| Field | Type | Required | Notes |
-|---|---|---|---|
-| `id` | string | Yes | Unique, kebab-case, no spaces |
-| `title` | string | Yes | Displayed in the info panel and label |
-| `year` | number | Yes | Negative = BCE, positive = CE |
-| `weight` | 1 \| 2 \| 3 | Yes | 1 = minor, 2 = medium, 3 = major. Controls LOD visibility at low zoom |
-| `description` | string | No | Shown in the scrollable details panel |
-| `tags` | string[] | No | Filtering metadata (not yet wired to UI) |
+| Field         | Type        | Required | Notes                                                                 |
+| ------------- | ----------- | -------- | --------------------------------------------------------------------- |
+| `id`          | string      | Yes      | Unique, kebab-case, no spaces                                         |
+| `title`       | string      | Yes      | Displayed in the info panel and label                                 |
+| `year`        | number      | Yes      | Negative = BCE, positive = CE                                         |
+| `weight`      | 1 \| 2 \| 3 | Yes      | 1 = minor, 2 = medium, 3 = major. Controls LOD visibility at low zoom |
+| `description` | string      | No       | Shown in the scrollable details panel                                 |
+| `tags`        | string[]    | No       | Filtering metadata (not yet wired to UI)                              |
 
 ### Eras (`src/lib/data/eras.json`)
 
@@ -48,14 +48,14 @@ Open the relevant JSON file and append entries following the schema below.
 }
 ```
 
-| Field | Type | Required | Notes |
-|---|---|---|---|
-| `id` | string | Yes | Unique, kebab-case |
-| `title` | string | Yes | Rendered on the era bar below the axis |
-| `start` | number | Yes | Start year (negative = BCE) |
-| `end` | number | Yes | End year (negative = BCE) |
-| `description` | string | No | Shown in the info panel |
-| `tags` | string[] | No | Filtering metadata |
+| Field         | Type     | Required | Notes                                  |
+| ------------- | -------- | -------- | -------------------------------------- |
+| `id`          | string   | Yes      | Unique, kebab-case                     |
+| `title`       | string   | Yes      | Rendered on the era bar below the axis |
+| `start`       | number   | Yes      | Start year (negative = BCE)            |
+| `end`         | number   | Yes      | End year (negative = BCE)              |
+| `description` | string   | No       | Shown in the info panel                |
+| `tags`        | string[] | No       | Filtering metadata                     |
 
 ### Weight / LOD behavior
 
@@ -150,10 +150,10 @@ src/lib/timeline/types.ts   # TypeScript types (TimelineEvent, TimelineEra, etc.
 
 ## 5. Common mistakes
 
-| Mistake | Fix |
-|---|---|
-| Duplicate `id` | Ensure every `id` is unique |
-| Positive year for BCE | Use negative numbers (e.g. `-44` for 44 BCE) |
-| Missing `weight` | Always include `weight: 1 \| 2 \| 3` |
-| Trailing comma in JSON | JSON does not allow trailing commas |
-| Spaces in `id` | Use kebab-case: `fall-of-rome`, not `fall of rome` |
+| Mistake                | Fix                                                |
+| ---------------------- | -------------------------------------------------- |
+| Duplicate `id`         | Ensure every `id` is unique                        |
+| Positive year for BCE  | Use negative numbers (e.g. `-44` for 44 BCE)       |
+| Missing `weight`       | Always include `weight: 1 \| 2 \| 3`               |
+| Trailing comma in JSON | JSON does not allow trailing commas                |
+| Spaces in `id`         | Use kebab-case: `fall-of-rome`, not `fall of rome` |

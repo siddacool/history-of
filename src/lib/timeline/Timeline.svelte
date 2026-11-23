@@ -1,17 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { browser } from '$app/env';
-  import Icon from '@iconify/svelte';
-  import { createYearScale } from './scale.js';
+	import { createYearScale } from './scale.js';
   import { layout, LABEL_ROW_HEIGHT, DOT_RADIUS, ERA_BAR_HEIGHT, ERA_LANE_GAP } from './layout.js';
-  import type { TimelineEvent, TimelineEra, Orientation, Theme, SelectedItem } from './types.js';
+  import type { TimelineEvent, TimelineEra, SelectedItem } from './types.js';
   import eventsData from '../data/events.json';
   import erasData from '../data/eras.json';
   import InfoPanel from './InfoPanel.svelte';
-  import SettingsPanel from './SettingsPanel.svelte';
-  import { fmtYear } from './format.js';
-
-  let { orientation }: { orientation: Orientation } = $props();
 
   const events: TimelineEvent[] = eventsData as TimelineEvent[];
   const eras: TimelineEra[] = erasData as TimelineEra[];
@@ -25,42 +19,7 @@
     MAXY = 2100;
   let sel = $state<SelectedItem>(null);
 
-  const STORAGE_KEY = 'history-of:settings';
-
-  function loadSettings(): { theme: Theme } {
-    if (!browser) return { theme: 'auto' };
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (parsed.theme && ['auto', 'light', 'dark'].includes(parsed.theme)) {
-          return { theme: parsed.theme as Theme };
-        }
-      }
-    } catch {
-      // ignore
-    }
-    return { theme: 'auto' };
-  }
-
-  function saveSettings(settings: { theme: Theme }) {
-    if (!browser) return;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-  }
-
-  const settings = $state(loadSettings());
-  let dark = $state(false);
-  let settingsOpen = $state(false);
-
-  $effect(() => {
-    if (settings.theme === 'auto') {
-      dark = matchMedia('(prefers-color-scheme: dark)').matches;
-    } else {
-      dark = settings.theme === 'dark';
-    }
-    document.documentElement.classList.toggle('dodo-theme--dark', dark);
-    draw();
-  });
+  const fmt = (y: number) => (y < 0 ? `${-y} BCE` : `${y} CE`);
 
   function toY(px: number) {
     return (px - W / 2) / s + cx;
@@ -88,6 +47,13 @@
     getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   let lastHits: { x0: number; y0: number; x1: number; y1: number; item: SelectedItem }[] = [];
+
+  function applyTheme() {
+    const root = document.documentElement;
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+    root.classList.toggle('dodo-theme--dark', dark);
+    draw();
+  }
 
   function draw() {
     if (!canvas) return;
@@ -213,11 +179,7 @@
     g.fillStyle = mut;
     g.textAlign = 'right';
     g.font = '11px system-ui,sans-serif';
-    g.fillText(
-      fmtYear(Math.round(toY(0))) + '  to  ' + fmtYear(Math.round(toY(W))),
-      W - 10,
-      H - 10,
-    );
+    g.fillText(fmt(Math.round(toY(0))) + '  to  ' + fmt(Math.round(toY(W))), W - 10, H - 10);
   }
 
   function zoom(f: number, mx?: number) {
@@ -248,6 +210,7 @@
     if (!canvas) return;
     resize();
     fitAll();
+    applyTheme();
 
     canvas.addEventListener('pointerdown', (e: PointerEvent) => {
       down = { x: e.clientX };
@@ -287,34 +250,13 @@
     });
 
     const mq = matchMedia('(prefers-color-scheme: dark)');
-    mq.addEventListener('change', () => {
-      if (settings.theme === 'auto') {
-        dark = mq.matches;
-        document.documentElement.classList.toggle('dodo-theme--dark', dark);
-        draw();
-      }
-    });
+    mq.addEventListener('change', applyTheme);
   });
-
-  function toggleOrientation() {
-    orientation = orientation === 'horizontal' ? 'vertical' : 'horizontal';
-    draw();
-  }
-
-  function themeLabel() {
-    return settings.theme === 'auto' ? 'Auto' : settings.theme === 'light' ? 'Light' : 'Dark';
-  }
 </script>
 
 <div class="shell">
   <div class="toolbar">
-    <button class="btn settings-btn" onclick={() => (settingsOpen = true)} title="Settings">
-      <Icon icon="mdi:cog" style="width:18px;height:18px;" />
-      <span class="settings-label">{themeLabel()}</span>
-    </button>
-    <button class="btn" onclick={fitAll} title="Fit all">
-      <Icon icon="mdi:fit-to-page" style="width:16px;height:16px;" />
-    </button>
+    <button class="btn" onclick={fitAll} title="Fit all"> Fit all </button>
   </div>
 
   <div class="wrap">
@@ -328,23 +270,6 @@
   <InfoPanel {sel} on:close={() => show(null)} />
 
   <div class="hint">Drag to pan &nbsp;•&nbsp; Scroll to zoom</div>
-
-  {#if settingsOpen}
-    <SettingsPanel
-      theme={settings.theme}
-      {orientation}
-      on:themeChange={(e) => {
-        settings.theme = e.detail;
-        saveSettings({ theme: e.detail });
-        settingsOpen = false;
-      }}
-      on:orientationChange={() => {
-        toggleOrientation();
-        settingsOpen = false;
-      }}
-      on:close={() => (settingsOpen = false)}
-    />
-  {/if}
 </div>
 
 <style>
@@ -396,10 +321,6 @@
   }
   .btn:hover {
     border-color: var(--dodo-color-primary-600, #b4442b);
-  }
-  .settings-btn .settings-label {
-    font-size: 12px;
-    color: var(--dodo-color-neutral-600, #6f6a62);
   }
   .hint {
     position: absolute;
