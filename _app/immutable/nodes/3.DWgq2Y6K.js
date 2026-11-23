@@ -1,0 +1,1 @@
+import{E as e,W as t,x as n,y as r}from"../chunks/DA60SWW4.js";import{t as i}from"../chunks/BbRMwRDo.js";var a=n(`<div class="page-wrap svelte-8jq2vj"><!></div>`);function o(n){var o=a(),s=e(o);i(s,{orientation:`vertical`}),t(o),r(n,o)}export{o as component};
