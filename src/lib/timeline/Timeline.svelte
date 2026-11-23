@@ -262,7 +262,7 @@
 <div class="shell">
   <div class="toolbar">
     <Button onclick={fitAll} compact aria-label="Fit all" title="Fit all" variant="text">
-      <Icon icon="mdi:fit-to-page" />
+      <Icon icon="mdi:zoom-fit" />
     </Button>
   </div>
 
@@ -275,8 +275,6 @@
   </div>
 
   <InfoPanel {sel} on:close={() => show(null)} />
-
-  <div class="hint">Drag to pan &nbsp;•&nbsp; Scroll to zoom</div>
 </div>
 
 <style>
@@ -313,14 +311,5 @@
   .canvas {
     cursor: grab;
     touch-action: none;
-  }
-  .hint {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    color: var(--dodo-color-neutral-500, #6f6a62);
-    font-size: 12px;
-    pointer-events: none;
-    z-index: 10;
   }
 </style>
