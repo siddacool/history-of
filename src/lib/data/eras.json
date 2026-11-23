@@ -1,0 +1,98 @@
+[
+  {
+    "id": "era1",
+    "title": "Bronze Age",
+    "start": -3300,
+    "end": -1200,
+    "description": "Early civilizations in Mesopotamia, Egypt, and the Indus Valley use bronze tools and writing.",
+    "tags": ["ancient"]
+  },
+  {
+    "id": "era2",
+    "title": "Classical Greece",
+    "start": -800,
+    "end": -146,
+    "description": "Flourishing of philosophy, democracy, art, and science in the Greek city-states.",
+    "tags": ["greece", "philosophy"]
+  },
+  {
+    "id": "era3",
+    "title": "Roman Republic",
+    "start": -509,
+    "end": -27,
+    "description": "Rome expands across Italy and the Mediterranean under a republican government.",
+    "tags": ["rome"]
+  },
+  {
+    "id": "era4",
+    "title": "Roman Empire",
+    "start": -27,
+    "end": 476,
+    "description": "Imperial Rome rules the Mediterranean world from Britain to Egypt.",
+    "tags": ["rome", "empire"]
+  },
+  {
+    "id": "era5",
+    "title": "Han Dynasty",
+    "start": -202,
+    "end": 220,
+    "description": "China's first great imperial dynasty establishes Confucian statecraft and the Silk Road.",
+    "tags": ["china"]
+  },
+  {
+    "id": "era6",
+    "title": "Middle Ages",
+    "start": 476,
+    "end": 1400,
+    "description": "Medieval Europe, feudal society, rise of Christianity and Islam, Crusades.",
+    "tags": ["europe", "medieval"]
+  },
+  {
+    "id": "era7",
+    "title": "Islamic Golden Age",
+    "start": 700,
+    "end": 1300,
+    "description": "Scientific, medical, and philosophical advances across the Islamic world.",
+    "tags": ["islam", "science"]
+  },
+  {
+    "id": "era8",
+    "title": "Mongol Empire",
+    "start": 1206,
+    "end": 1368,
+    "description": "Largest contiguous land empire in history, linking East and West.",
+    "tags": ["mongolia", "conquest"]
+  },
+  {
+    "id": "era9",
+    "title": "Renaissance",
+    "start": 1400,
+    "end": 1650,
+    "description": "Rebirth of classical learning, art, and humanism in Europe.",
+    "tags": ["europe", "art"]
+  },
+  {
+    "id": "era10",
+    "title": "Age of Exploration",
+    "start": 1450,
+    "end": 1700,
+    "description": "European voyages connect the Americas, Africa, and Asia.",
+    "tags": ["exploration"]
+  },
+  {
+    "id": "era11",
+    "title": "Industrial Revolution",
+    "start": 1760,
+    "end": 1850,
+    "description": "Mechanization, steam power, and factories transform society and economy.",
+    "tags": ["industry", "technology"]
+  },
+  {
+    "id": "era12",
+    "title": "Cold War",
+    "start": 1947,
+    "end": 1991,
+    "description": "Ideological and geopolitical tension between the United States and the Soviet Union.",
+    "tags": ["cold-war", "20th-century"]
+  }
+]

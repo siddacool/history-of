@@ -1,0 +1,186 @@
+[
+  {
+    "id": "e1",
+    "title": "Invention of writing",
+    "year": -3400,
+    "weight": 3,
+    "description": "Cuneiform script emerges in Sumer, marking the beginning of recorded history.",
+    "tags": ["Mesopotamia", "writing"]
+  },
+  {
+    "id": "e2",
+    "title": "Old Kingdom Egypt",
+    "year": -2686,
+    "weight": 3,
+    "description": "Pyramid age begins with the Third Dynasty of Egypt.",
+    "tags": ["Egypt", "pyramids"]
+  },
+  {
+    "id": "e3",
+    "title": "Hammurabi's Code",
+    "year": -1754,
+    "weight": 2,
+    "description": "One of the earliest written legal codes is established in Babylon.",
+    "tags": ["Babylon", "law"]
+  },
+  {
+    "id": "e4",
+    "title": "Exodus / Bronze Age collapse",
+    "year": -1200,
+    "weight": 2,
+    "description": "Widespread collapse of Bronze Age civilizations across the Eastern Mediterranean.",
+    "tags": ["collapse", "migration"]
+  },
+  {
+    "id": "e5",
+    "title": "Founding of Rome",
+    "year": -753,
+    "weight": 2,
+    "description": "Traditional date for the founding of Rome by Romulus.",
+    "tags": ["Rome"]
+  },
+  {
+    "id": "e6",
+    "title": "Buddha and Confucius",
+    "year": -563,
+    "weight": 2,
+    "description": "Lifetimes of Siddhartha Gautama and Kong Fuzi shape Asian philosophy.",
+    "tags": ["India", "China", "philosophy"]
+  },
+  {
+    "id": "e7",
+    "title": "Alexander the Great",
+    "year": -334,
+    "weight": 3,
+    "description": "Macedonian conquests spread Hellenistic culture from Greece to India.",
+    "tags": ["Greece", "conquest"]
+  },
+  {
+    "id": "e8",
+    "title": "Punic Wars end",
+    "year": -146,
+    "weight": 2,
+    "description": "Rome destroys Carthage, establishing dominance in the western Mediterranean.",
+    "tags": ["Rome", "Carthage"]
+  },
+  {
+    "id": "e9",
+    "title": "Julius Caesar assassinated",
+    "year": -44,
+    "weight": 3,
+    "description": "Death of Caesar triggers the end of the Roman Republic and rise of Empire.",
+    "tags": ["Rome"]
+  },
+  {
+    "id": "e10",
+    "title": "Han Dynasty peak",
+    "year": 100,
+    "weight": 2,
+    "description": "Han China reaches its greatest territorial extent under Emperor Wu.",
+    "tags": ["China"]
+  },
+  {
+    "id": "e11",
+    "title": "Fall of Western Rome",
+    "year": 476,
+    "weight": 3,
+    "description": "Deposition of Romulus Augustulus marks the fall of the Western Roman Empire.",
+    "tags": ["Rome"]
+  },
+  {
+    "id": "e12",
+    "title": "Rise of Islam",
+    "year": 622,
+    "weight": 3,
+    "description": "Hijra of Muhammad; founding of the Islamic calendar and rapid expansion.",
+    "tags": ["Arabia", "religion"]
+  },
+  {
+    "id": "e13",
+    "title": "Charlemagne crowned",
+    "year": 800,
+    "weight": 2,
+    "description": "Crowned Emperor of the Romans, founding the Carolingian Empire.",
+    "tags": ["Europe", "empire"]
+  },
+  {
+    "id": "e14",
+    "title": "Norman Conquest",
+    "year": 1066,
+    "weight": 2,
+    "description": "William the Conqueror invades England at the Battle of Hastings.",
+    "tags": ["England"]
+  },
+  {
+    "id": "e15",
+    "title": "Magna Carta",
+    "year": 1215,
+    "weight": 2,
+    "description": "King John of England agrees to limits on royal power.",
+    "tags": ["England", "law"]
+  },
+  {
+    "id": "e16",
+    "title": "Black Death",
+    "year": 1347,
+    "weight": 3,
+    "description": "Bubonic plague sweeps through Eurasia, killing an estimated third of Europe.",
+    "tags": ["pandemic", "Europe"]
+  },
+  {
+    "id": "e17",
+    "title": "Fall of Constantinople",
+    "year": 1453,
+    "weight": 2,
+    "description": "Ottoman capture of Constantinople ends the Byzantine Empire.",
+    "tags": ["Ottoman", "Byzantium"]
+  },
+  {
+    "id": "e18",
+    "title": "Columbus reaches Americas",
+    "year": 1492,
+    "weight": 3,
+    "description": "Christopher Columbus lands in the Bahamas, opening sustained European contact.",
+    "tags": ["exploration", "Americas"]
+  },
+  {
+    "id": "e19",
+    "title": "French Revolution",
+    "year": 1789,
+    "weight": 3,
+    "description": "Storming of the Bastille begins a decade of radical political upheaval in France.",
+    "tags": ["France", "revolution"]
+  },
+  {
+    "id": "e20",
+    "title": "Industrial Revolution",
+    "year": 1830,
+    "weight": 3,
+    "description": "Steam power and mechanized manufacturing transform economies globally.",
+    "tags": ["industry", "technology"]
+  },
+  {
+    "id": "e21",
+    "title": "World War I ends",
+    "year": 1918,
+    "weight": 2,
+    "description": "Armistice ends the first global industrial war.",
+    "tags": ["war"]
+  },
+  {
+    "id": "e22",
+    "title": "World War II ends",
+    "year": 1945,
+    "weight": 3,
+    "description": "Axis powers surrender; nuclear age begins; UN is founded.",
+    "tags": ["war"]
+  },
+  {
+    "id": "e23",
+    "title": "Fall of Berlin Wall",
+    "year": 1989,
+    "weight": 2,
+    "description": "The Berlin Wall falls, symbolizing the end of the Cold War in Europe.",
+    "tags": ["Germany", "cold-war"]
+  }
+]
