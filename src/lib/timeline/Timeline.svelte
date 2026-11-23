@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Button, AffixIcon } from '@flightlesslabs/dodo-ui';
+  import { Button } from '@flightlesslabs/dodo-ui';
   import Icon from '@iconify/svelte';
   import { createYearScale } from './scale.js';
   import { fmtYear } from './format.js';
@@ -261,10 +261,8 @@
 
 <div class="shell">
   <div class="toolbar">
-    <Button onclick={fitAll} compact aria-label="Fit all" title="Fit all">
-      <AffixIcon>
-        <Icon icon="mdi:fit-to-page" style="width:16px;height:16px;" />
-      </AffixIcon>
+    <Button onclick={fitAll} compact aria-label="Fit all" title="Fit all" variant="text">
+      <Icon icon="mdi:fit-to-page" />
     </Button>
   </div>
 

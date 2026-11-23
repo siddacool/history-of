@@ -1,6 +1,10 @@
 <script lang="ts">
   import { browser } from '$app/env';
   import '@flightlesslabs/dodo-ui/styles/global.css';
+  import '@flightlesslabs/dodo-ui/styles/components.css';
+  import type { Snippet } from 'svelte';
+
+  let { children }: { children: Snippet } = $props();
 
   let dark = $state(browser ? matchMedia('(prefers-color-scheme: dark)').matches : false);
 
@@ -25,7 +29,7 @@
 
 <div class="app" style="position:fixed;inset:0;">
   <main class="page">
-    <slot />
+    {@render children()}
   </main>
 </div>
 
